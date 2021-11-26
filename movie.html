@@ -1,0 +1,61 @@
+<html>
+<head>
+</head>
+<body>
+
+<script language="Javascript">
+<!---
+var num_images_movie = 1;
+var img_width_movie = 800;
+var img_height_movie = 600;
+var interval_movie = 40;
+var images_movie = new Array();
+function preload_images_movie()
+{
+   t = document.getElementById("progress");
+
+   t.innerHTML = "Preloading image ";
+   images_movie[0] = new Image(img_width_movie, img_height_movie);
+   images_movie[0].src = "099_movie.jpg";
+        
+   t.innerHTML = "";
+}
+function tick_movie()
+{
+   if (frame_movie > num_images_movie - 1)
+       frame_movie = 0;
+   document.name_movie.src = images_movie[frame_movie].src;
+   frame_movie += 1;
+   tt = setTimeout("tick_movie()", interval_movie);
+}
+function startup_movie()
+{
+   preload_images_movie();
+   frame_movie = 0;
+   setTimeout("tick_movie()", interval_movie);
+}
+function stopit_movie()
+{ clearTimeout(tt); }
+function restart_movie()
+{ tt = setTimeout("tick_movie()", interval_movie); }
+function slower_movie()
+{ interval_movie = interval_movie/0.707; }
+function faster_movie()
+{ interval_movie = interval_movie*0.707; }
+// --->
+</script>
+
+<form>
+&nbsp;
+<input type="button" value="Start movie" onClick="startup_movie()">
+<input type="button" value="Pause movie" onClick="stopit_movie()">
+<input type="button" value="Resume movie" onClick="restart_movie()">
+&nbsp;
+<input type="button" value="Slower" onClick="slower_movie()">
+<input type="button" value="Faster" onClick="faster_movie()">
+</form>
+<p><div ID="progress"></div></p>
+<img src="099_movie.jpg" name="name_movie" border=2/>
+
+</body>
+</html>
